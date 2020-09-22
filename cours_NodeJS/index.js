@@ -48,7 +48,7 @@ app.put('/users/:id', async function (req, res) {
     }
 })
 
-app.delete('/users/:id', function (req, res) {
+app.delete('/users/:id', async function (req, res) {
     try {
         const id = req.params.id
         const { data } = await Axios.delete('https://jsonplaceholder.typicode.com/users' + id)
