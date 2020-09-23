@@ -11,7 +11,7 @@ app.get('/users', async function (req, res) {
     try {
         const { data } = await Axios.get('https://jsonplaceholder.typicode.com/users')
         console.log(data)
-        res.send(data)
+        res.json(data)
     } catch (error) {
         res.send(error)
     }
