@@ -31,7 +31,7 @@ app.post('/users', async function(req, res) {
 
 app.get('/users/:id', async function(req, res) {
     try {
-        const data = con.query('SELECT employee_id, first_name, last_name FROM employee')
+        const data = await con.query('SELECT employee_id, first_name, last_name FROM employee')
         console.log(data)
         res.json(data)
     } catch (error) {
@@ -42,7 +42,7 @@ app.get('/users/:id', async function(req, res) {
 app.delete('/users/:id', async function(req, res) {
     try {
         const id = req.params.id
-        const data = con.query(`DELETE FROM 'employees' WHERE employee_id = ${id};`)
+        const data = await con.query(`DELETE FROM 'employees' WHERE employee_id = ${id};`)
         console.log(data)
         res.json(data)
     } catch (error) {
@@ -53,10 +53,12 @@ app.delete('/users/:id', async function(req, res) {
 app.put('/users/:id', async function(req, res) {
     try {
         const id = req.params.id
-        const data = con.query('UPDATE employees')
+        const data = await con.query('UPDATE employees')
     } catch (error) {
         
     }
 })
+
+
 
 
