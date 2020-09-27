@@ -82,10 +82,4 @@ app.get('/users/:id/albums', async function (req, res) {
         res.send(error)
     }
 })
-
-
-
-
-
-
 app.listen(1717)
